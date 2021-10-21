@@ -27,8 +27,8 @@ public class Runner {
 		//System.out.println("3");
 		
 		
-		//Stack.firstMethod();
-		//Stack.secondMethod();
+//		Stack.firstMethod();
+//		Stack.secondMethod();
 		
 //		Returns.printHello();
 //		Returns.returnHello();
@@ -44,9 +44,18 @@ public class Runner {
 		
 		
 		//Creating a Dragon object
-		Dragon jack = new Dragon(4,"black");
-		System.out.println(jack.dragonAge());
-		
+//		Dragon jack = new Dragon(4,"black");
+//		System.out.println(jack.dragonAge());
+//		
+	
+	//System.out.println(MethodStack.firstLayer());
+	//System.out.println(DiceStack.threeSidedDice());
+	System.out.println("Sum of 4 sided dice is " + DiceStack.sum4SidedDice());
+	System.out.println("Sum of 10 sided dice is " + DiceStack.sum10SidedDice());
+	System.out.println("Sum of All sided dice is "+ DiceStack.sumAllSidedDice());
+	System.out.println(DiceStack.sum4SixSidedDice());
+	
+	
 	}
 	
 	

@@ -24,9 +24,9 @@ public class Returns {
 		return "Alright";
 	}
 	
-	public static char myChar() {
-		return 4;
-	}
+	//public static char myChar() {
+	//	return "4";
+	//}
 	
 	public static float myFloat() {
 		return 0.5f;
