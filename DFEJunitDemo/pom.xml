@@ -4,3 +4,11 @@
   <artifactId>DFEJunitDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </project>
+
+  
+<!-- needed to add maven.compiler.source... into the properties -->
+	<properties>
+    <junit.version>4.12</junit.version>
+    <maven.compiler.source>16</maven.compiler.source>
+	<maven.compiler.target>16</maven.compiler.target> 
+	</properties>
