@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 
 import com.qa.garage.Garage;
 import com.qa.vehicle.Vehicle;
@@ -14,15 +16,29 @@ import com.qa.vehicle.Vehicle;
 public class GarageTest 
 {
 	
+	// Junit 5		-	Junit 4
+	//@BeforeAll	-	@BeforeClass : Needs to be a static method, this will run before everything else; here 
+	//@BeforeEach	-	@Before : Method to run before every test, this is best to set up our prereqs before testing ,e.g create an object
+	//@AfterAll		-	@AfterClass: A static method rat at the end of everything; used to disconnect or close down our components e.g DB.close()
+	//@AfterEach	-	@AfterClass: Method to run after every test, best used to teardown any allocated resource post test e.g. clearling a list, 
+	//@Test			-   @Test:Specifies a Method that Junit will run , typically containing an assertion
+	//@Disable		-	@Ignore:Prevents a test by running 
+	
+//	Garage mygarage;
+//	ArrayList<Vehicle> mygarageList;
+//	ArrayList<Vehicle> myVehicleList;
+//	Vehicle myVehicle;
+//	Vehicle mySecondVehicle;
+//	
+//	@BeforeAll
+//	public static void init() {
 	Garage mygarage = new Garage();// to use with test 1
 	ArrayList<Vehicle> mygarageList = new ArrayList<>(); // to use with test 2
 	ArrayList<Vehicle> myVehicleList = new ArrayList<>(); 
 	Vehicle myVehicle = new Vehicle("myVehicle", 5, "driven", "black", 200);
 	Vehicle mySecondVehicle = new Vehicle("mySecondVehicle",5,"driven","red",100);
-	//removeVehichleFromGarage
-	//totterdownGarage.addVehicleToGarage(myHelicopter)
+//	}
 	
-	//Testing whether mygarage object has been
 	
 	@Test //needed to let Junit know that its a test 
 	public void testingGarageObject() {
@@ -66,18 +82,18 @@ public class GarageTest
 	}
 	
 	
-//	@Test // test 5 - checking whether the method that remove a vehicle to the garagelist works
-//	public void testUpdateGarageList() {
-//		
-//		//checking that garageList is empty
-//		assertTrue(mygarage.garageList.isEmpty());
-//		
-//		//adding a vehicle at an index position in the garageList
-//		mygarage.updateGarageList(0, mySecondVehicle);
-//		
-//		
-//		
-//	}
+	@Test // test 6 - checking whether the method that remove a vehicle to the garagelist works
+	public void testUpdateGarageList() {
+		mygarage.addVehicleToGarage(myVehicle);// adding myvehicle to the garage
+		//checking that garageList has myVehicle
+		assertEquals(mygarage.showVehicles() ,"[myVehicle]");
+		
+		//adding a vehicle at an index position in the garageList
+		mygarage.updateGarageList(0, mySecondVehicle);
+		
+		
+		
+	}
 	
 	
 	
