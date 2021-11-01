@@ -58,8 +58,8 @@ public static void ex3() {
 	int min = Arrays.stream(nums.min().getAsInt());
 	
 	
-	List<Intefer> numbers = Arrays.asList(1,2,3,4,5);
-	int max2 = numbers.stream().max(Comparator.comparingInt());
+//	List<Intefer> numbers = Arrays.asList(1,2,3,4,5);
+//	int max2 = numbers.stream().max(Comparator.comparingInt());
 }
 
 
