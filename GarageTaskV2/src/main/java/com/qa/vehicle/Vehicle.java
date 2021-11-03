@@ -2,7 +2,7 @@ package com.qa.vehicle;
 
 import com.qa.vehicle.Vehicle;
 
-public class Vehicle {
+public abstract class  Vehicle {//abstract class cannot me instantiated
 	
 	//Fields or Attributes
 	

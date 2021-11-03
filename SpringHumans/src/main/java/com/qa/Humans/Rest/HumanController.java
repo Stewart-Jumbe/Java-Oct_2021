@@ -1,8 +1,12 @@
+//The controller talks to the front end
+
 package com.qa.Humans.Rest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +39,8 @@ public class HumanController {
 		return this.humans.get(this.humans.size()-1);//returning the most recently added
 		
 	}
-	
+	//Reponse Entities will be needed for everything except Get
+	//Response has a head, body and code
 	//Create, Read, Update, Delete
 	
 	//READING
@@ -54,17 +59,31 @@ public class HumanController {
 		
 	//Update
 	@PutMapping("/replace/{id}")
-	public Human replaceHuman(@PathVariable Integer id, @RequestBody Human newHuman) {//@RequestBody will create a new human object(internally an object mapper converts the jason code back to java)
+	
+	public ResponseEntity<Human> replaceHuman(@PathVariable Integer id, @RequestBody Human newHuman) {//@RequestBody will create a new human object(internally an object mapper converts the jason code back to java)
 		System.out.println("Replacing human with id " +id +"with "+ newHuman);
-		return null;
+		Human mycreation = this.humans.set(id, newHuman);
+		return new ResponseEntity<Human>(mycreation, HttpStatus.ACCEPTED);
 	}
+//	public Human replaceHuman(@PathVariable Integer id, @RequestBody Human newHuman) {//@RequestBody will create a new human object(internally an object mapper converts the jason code back to java)
+//		System.out.println("Replacing human with id " +id +"with "+ newHuman);
+//		this.humans.set(id, newHuman);
+//		return null;
+//	}
 	
 	//DELETE
 	@DeleteMapping("/remove/{id}")
-	public Human removeHuman(@PathVariable Integer id) {
+	
+	public ResponseEntity<?> removeHuman(@PathVariable Integer id) {
 		System.out.println("Removing human with id "+ id);
-		return null;
+		this.humans.remove(id.intValue());
+		return new ResponseEntity<>("Removed"+id, HttpStatus.NO_CONTENT);
 	}
+//	public Human removeHuman(@PathVariable Integer id) {
+//		System.out.println("Removing human with id "+ id);
+//		this.humans.remove(id);
+//		return null;
+//	}
 	
 	
 	
