@@ -2,9 +2,9 @@
 
 package com.qa.Humans.Rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +25,8 @@ public class HumanController {
 	//Creating private list because we're not implementing the database yet
 	private HumanService service;
 	
+	//injecting HumanService into Human Controller through the use of a constructor
+	@Autowired // this annotation isnt needed because we only have 1 constructor
 	public HumanController(HumanService service) {
 		super();
 		this.service = service;

@@ -1,10 +1,15 @@
 package com.qa.Humans.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
-import com.qa.Humans.Domain.Human;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
+import com.qa.Humans.Domain.Human;
+@Primary
+@Service// shows intent
 public class HumanServiceList implements HumanService {
 
 	

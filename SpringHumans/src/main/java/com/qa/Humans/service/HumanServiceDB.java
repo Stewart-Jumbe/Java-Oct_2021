@@ -2,8 +2,10 @@ package com.qa.Humans.service;
 
 import java.util.List;
 
-import com.qa.Humans.Domain.Human;
+import org.springframework.stereotype.Service;
 
+import com.qa.Humans.Domain.Human;
+@Service
 public class HumanServiceDB implements HumanService{
 
 	@Override
