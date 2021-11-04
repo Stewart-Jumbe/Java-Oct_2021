@@ -1,6 +1,17 @@
 package com.qa.Humans.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // tells the DB to create table with attributes as fields
 public class Human {
+	
+	@Id // tells Spring this is the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)// AUTO_INCREMENT
+	private Integer id;
+	
 	
 	//Attributes 
 	private String name;
@@ -12,7 +23,8 @@ public class Human {
 	
 	//Constructor
 	
-	//default constructor
+	
+	//default constructor, allows you to create a blank object
 	public Human() {
 		super();
 	}
@@ -28,8 +40,22 @@ public class Human {
 		this.updateVersion = updateVersion;
 		this.implantedAbility = implantedAbility;
 	}
+	
+	
+// Constuctor used for returning info from database
+	public Human(Integer id, String name, int ageOfBirth, String planetOfOrgin, boolean bionicTech,
+			double updateVersion, String implantedAbility) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.ageOfBirth = ageOfBirth;
+		this.planetOfOrgin = planetOfOrgin;
+		this.bionicTech = bionicTech;
+		this.updateVersion = updateVersion;
+		this.implantedAbility = implantedAbility;
+	}
 
-	//Getters and Setters
+	//Getters and Setters [Required for DB to work] 
 
 	public String getName() {
 		return name;
@@ -78,14 +104,25 @@ public class Human {
 	public void setImplantedAbility(String implantedAbility) {
 		this.implantedAbility = implantedAbility;
 	}
-	// To String
 
-	@Override
-	public String toString() {
-		return "Human [name=" + name + ", ageOfBirth=" + ageOfBirth + ", planetOfOrgin=" + planetOfOrgin
-				+ ", bionicTech=" + bionicTech + ", updateVersion=" + updateVersion + ", implantedAbility="
-				+ implantedAbility + "]";
+	public Integer getId() {
+		return id;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	
+	
+	// To String [Not needed for DB]
+
+//	@Override
+//	public String toString() {
+//		return "Human [name=" + name + ", ageOfBirth=" + ageOfBirth + ", planetOfOrgin=" + planetOfOrgin
+//				+ ", bionicTech=" + bionicTech + ", updateVersion=" + updateVersion + ", implantedAbility="
+//				+ implantedAbility + "]";
+//	}
 	
 	
 

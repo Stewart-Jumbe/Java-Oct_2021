@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.qa.Humans.Domain.Human;
-@Primary
-@Service// shows intent
+
+@Service// shows intent, says its a bean and this is where our business logic goes
 public class HumanServiceList implements HumanService {
 
 	

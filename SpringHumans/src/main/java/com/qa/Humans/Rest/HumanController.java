@@ -19,7 +19,7 @@ import com.qa.Humans.Domain.Human;
 import com.qa.Humans.service.HumanService;
 
 @RestController // enables request handling
-
+//@RequestMapping( "/osmethong") // can be used for prepending e.g localhost:8080//osmethong
 public class HumanController {
 
 	//Creating private list because we're not implementing the database yet
@@ -101,12 +101,25 @@ public class HumanController {
 	//DELETE
 	@DeleteMapping("/remove/{id}")
 	
+	//checks if human with a specific id has been removed, and says no_content
 	public ResponseEntity<?> removeHuman(@PathVariable Integer id) {
 		System.out.println("Removing human with id "+ id);
-		//this.humans.remove(id.intValue());
-		this.service.removeHuman(id.intValue());
-		return new ResponseEntity<>("Removed"+id, HttpStatus.NO_CONTENT);
+		boolean removed = this.service.removeHuman(id);
+		if(removed) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+		//this.humans.remove(id.intValue());
+		//this.service.removeHuman(id.intValue());
+		//return new ResponseEntity<>("Removed"+id, HttpStatus.NO_CONTENT);
+//	public ResponseEntity<?> removeHuman(@PathVariable Integer id) {
+//		System.out.println("Removing human with id "+ id);
+//		//this.humans.remove(id.intValue());
+//		this.service.removeHuman(id.intValue());
+//		return new ResponseEntity<>("Removed"+id, HttpStatus.NO_CONTENT);
+	
 //	public Human removeHuman(@PathVariable Integer id) {
 //		System.out.println("Removing human with id "+ id);
 //		this.humans.remove(id);
